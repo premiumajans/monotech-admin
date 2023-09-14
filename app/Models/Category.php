@@ -13,17 +13,9 @@ class Category extends Model implements TranslatableContract
     use Translatable, LogsActivity;
     public array $translatedAttributes = ['name'];
     protected $fillable = ['slug'];
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function projects(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Category::class, 'parent_id');
-    }
-    public function projects(): void
-    {
-        $this->hasMany(Project::class);
-    }
-    public function subcategories(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->hasMany(Project::class);
     }
     public function getActivitylogOptions(): LogOptions
     {

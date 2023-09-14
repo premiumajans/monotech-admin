@@ -30,16 +30,9 @@ class CategoryController extends Controller
     {
         check_permission('categories create');
         try {
-            if ($request->has('parent')) {
-                $parentCategory = Category::find($request->parent);
-                $category = new Category();
-                $category->slug = $request->slug;
-                $parentCategory->subcategories()->save($category);
-            } else {
-                $category = new Category();
-                $category->slug = $request->slug;
-                $category->save();
-            }
+            $category = new Category();
+            $category->slug = $request->slug;
+            $category->save();
             foreach (active_langs() as $lang) {
                 $translation = new CategoryTranslation();
                 $translation->locale = $lang->code;
@@ -74,7 +67,6 @@ class CategoryController extends Controller
                 foreach (active_langs() as $lang) {
                     $category->translate($lang->code)->name = $request->name[$lang->code];
                 }
-                $category->parent_id = $request->parent;
                 $category->slug = $request->slug;
                 $category->save();
             });

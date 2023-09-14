@@ -20,11 +20,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-//        $generalCategories = Category::with('subcategories.subcategories')->get();
-//        $mainCategories = Category::where('parent_id', null)->with('subcategories.subcategories')->get();
-//        view()->share([
-//            'generalCategories' => $generalCategories,
-//            'mainCategories' => $mainCategories,
-//        ]);
+        $generalCategories = Category::all();
+        view()->share([
+            'generalCategories' => $generalCategories,
+        ]);
     }
 }

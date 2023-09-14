@@ -20,7 +20,7 @@
                 @can('categories index')
                     <li>
                         <a href="{{ route('backend.categories.index') }}" class="waves-effect">
-                            <i class="fas fa-project-diagram"></i>
+                            <i class="fas fa-bars"></i>
                             <span>@lang('backend.categories')</span>
                         </a>
                     </li>
@@ -33,14 +33,14 @@
                         </a>
                     </li>
                 @endcan
-                @can('partner index')
-                    <li>
-                        <a href="{{ route('backend.partner.index') }}" class="waves-effect">
-                            <i class="fas fa-link"></i>
-                            <span>@lang('backend.partner')</span>
-                        </a>
-                    </li>
-                @endcan
+{{--                @can('partner index')--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('backend.partner.index') }}" class="waves-effect">--}}
+{{--                            <i class="fas fa-link"></i>--}}
+{{--                            <span>@lang('backend.partner')</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
                 @can('certificate index')
                     <li>
                         <a href="{{ route('backend.sertificate.index') }}" class="waves-effect">

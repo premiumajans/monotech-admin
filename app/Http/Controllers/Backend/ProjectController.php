@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\CRUDHelper;
+use App\Models\Category;
 use App\Models\ProductPhotos;
 use App\Models\ProjectPhotos;
 use App\Models\ProjectTranslation;
@@ -31,9 +32,10 @@ class ProjectController extends Controller
     {
         check_permission('project create');
         try {
+            $category = Category::find($request->category);
             $project = new Project();
             $project->photo = upload('project', $request->file('photo'));
-            $project->save();
+            $category->projects()->save($project);
             if ($request->hasFile('photos')) {
                 foreach (multi_upload('project', $request->file('photos')) as $photo) {
                     $projectPhoto = new ProjectPhotos();
@@ -83,6 +85,7 @@ class ProjectController extends Controller
                         $project->photos()->save($projectPhoto);
                     };
                 }
+                $project->category_id = $request->category;
                 foreach (active_langs() as $lang) {
                     $project->translate($lang->code)->name = $request->name[$lang->code];
                     $project->translate($lang->code)->description = $request->description[$lang->code];

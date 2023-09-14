@@ -55,16 +55,6 @@
                                                    placeholder="/news">
                                             {!! validation_response('backend.slug') !!}
                                         </div>
-                                        <div class="mb-3">
-                                            <label>@lang('backend.parent')</label>
-                                            <select name="parent" type="text" class="form-control">
-                                                <option value="">-</option>
-                                                @foreach($categories as $category)
-                                                    <option
-                                                        value="{{ $category->id }}">{{ $category->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-5 text-center">
