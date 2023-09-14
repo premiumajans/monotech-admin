@@ -17,9 +17,9 @@ class Category extends Model implements TranslatableContract
     {
         return $this->belongsTo(Category::class, 'parent_id');
     }
-    public function content(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function projects(): void
     {
-        return $this->hasMany(Content::class);
+        $this->hasMany(Project::class);
     }
     public function subcategories(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

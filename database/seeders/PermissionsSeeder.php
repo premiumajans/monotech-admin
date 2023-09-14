@@ -32,7 +32,7 @@ class PermissionsSeeder extends Seeder
             'partner',
             'faq',
             'project',
-            'sertificate',
+            'certificate',
             'photo',
             'video',
         ];

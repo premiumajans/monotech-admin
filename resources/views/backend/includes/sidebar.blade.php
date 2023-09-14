@@ -2,8 +2,6 @@
     <div data-simplebar class="h-100" style="overflow-y: auto;">
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="side-menu">
-                {{--                {{ creation('Photo','Photo',true,true) }}--}}
-                {{--                {{ creation('Video','Video',true,false) }}--}}
                 <li>
                     <a href="{{ route('backend.dashboard') }}" class="waves-effect">
                         <i class="ri-home-4-fill"></i>
@@ -19,19 +17,11 @@
                         </a>
                     </li>
                 @endcan
-                @can('service index')
+                @can('categories index')
                     <li>
-                        <a href="{{ route('backend.service.index') }}" class="waves-effect">
-                            <i class="fas fa-wrench"></i>
-                            <span>@lang('backend.service')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('product index')
-                    <li>
-                        <a href="{{ route('backend.product.index') }}" class="waves-effect">
-                            <i class="fas fa-video"></i>
-                            <span>@lang('backend.product')</span>
+                        <a href="{{ route('backend.categories.index') }}" class="waves-effect">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>@lang('backend.categories')</span>
                         </a>
                     </li>
                 @endcan
@@ -51,7 +41,7 @@
                         </a>
                     </li>
                 @endcan
-                @can('sertificate index')
+                @can('certificate index')
                     <li>
                         <a href="{{ route('backend.sertificate.index') }}" class="waves-effect">
                             <i class="fas fa-certificate"></i>
@@ -59,27 +49,6 @@
                         </a>
                     </li>
                 @endcan
-                @canany(['photo index','video index'])
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="fas fa-briefcase"></i>
-                            <span>@lang('backend.gallery')</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li>
-                                <a href="{{ route('backend.photo.index') }}">
-                                    @lang('backend.photo') (@lang('backend.gallery'))
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('backend.video.index') }}">
-                                    @lang('backend.video') (@lang('backend.gallery'))
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcanany
-
                 @can('about index')
                     <li>
                         <a href="{{ route('backend.about.index') }}" class="waves-effect">
