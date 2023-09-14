@@ -10,12 +10,11 @@ use Spatie\Permission\Models\Permission;
 
 class AdminSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         $admin = Admin::create([
             'name' => 'Admin',
-//            'email' => 'admin@'. \Str::lower(str_replace("https://","",env('APP_URL'))),
-            'email' => 'admin@safelife.az',
+            'email' => 'admin@monotech.az',
             'password' => '$2y$10$hcn0QuYc5NOiKrjaNMGNIeITHW3bzJ6UeTVWWg/1ZaFQ8eXX1Incm' //Password
         ]);
         $admin->givePermissionTo(Permission::all());
