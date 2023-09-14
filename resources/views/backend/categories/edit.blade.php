@@ -51,18 +51,6 @@
                                             <input name="slug" id="slug" type="text" class="form-control" required=""
                                                    value="{{ $category->slug }}">
                                         </div>
-                                        <div class="mb-3">
-                                            <label>@lang('backend.parent')</label>
-                                            <select name="parent" type="text" class="form-control">
-                                                <option value="" @if($category->parent_id == null) selected @endif>-
-                                                </option>
-                                                @foreach($categories as $cat)
-                                                    <option
-                                                        value="{{ $cat->id }}"
-                                                        @if($category->parent_id == $cat->id) selected @endif>{{ $cat->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-5 text-center">

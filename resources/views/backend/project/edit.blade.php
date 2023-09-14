@@ -39,6 +39,15 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                            <div class="mb-3">
+                                                <label>@lang('backend.categories')</label>
+                                                <select class="form-control" name="category">
+                                                    @foreach($generalCategories as $ctgry)
+                                                        <option
+                                                            value="{{ $ctgry->id }}" @if($project->category_id == $ctgry->id) selected @endif }}>{{ $ctgry->translate(app()->getLocale())->name ?? '' }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photo')</label>
                                             <input name="photo" type="file" class="form-control">

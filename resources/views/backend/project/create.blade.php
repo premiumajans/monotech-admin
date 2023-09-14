@@ -37,17 +37,27 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                            <div class="mb-3">
-                                                <label>@lang('backend.photo') <span
-                                                        class="text-danger">*</span></label>
-                                                <input name="photo" type="file" class="form-control" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label>@lang('backend.photos')</label>
-                                                <input type="file" class="form-control mb-2" id="photos" name="photos[]"
-                                                       multiple>
-                                                <div id="image-preview-container" class="d-flex flex-wrap"></div>
-                                            </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.categories')</label>
+                                            <select class="form-control" name="category">
+                                                @foreach($generalCategories as $ctgry)
+                                                    <option
+                                                        value="{{ $ctgry->id }}">{{ $ctgry->translate(app()->getLocale())->name ?? '' }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.photo') <span
+                                                    class="text-danger">*</span></label>
+                                            <input name="photo" type="file" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.photos')</label>
+                                            <input type="file" class="form-control mb-2" id="photos" name="photos[]"
+                                                   multiple>
+                                            <div id="image-preview-container" class="d-flex flex-wrap"></div>
+                                        </div>
+
 
                                     </div>
                                 </div>

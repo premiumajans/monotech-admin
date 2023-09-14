@@ -46,7 +46,7 @@
                             <li class="active"><a href="{{ route('frontend.index') }}"><p>Home</p></a></li>
                             <li class="position-static"><a href="#"><span>@lang('backend.categories')</span></a>
                                 <ul class="mega-menu four-column">
-                                    @foreach($mainCategories as $mc)
+                                    @foreach($generalCategories as $mc)
                                         <li>
                                             <a>{{ $mc->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</a>
                                             <ul>

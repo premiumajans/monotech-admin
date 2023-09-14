@@ -65,7 +65,7 @@
                                         <div class="mb-3">
                                             <label>@lang('backend.categories')</label>
                                             <select class="form-control" name="category">
-                                                @foreach($mainCategories as $ctgry)
+                                                @foreach($generalCategories as $ctgry)
                                                     <optgroup
                                                         label="{{ $ctgry->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}">
                                                         @foreach($ctgry->subcategories as $subCat)

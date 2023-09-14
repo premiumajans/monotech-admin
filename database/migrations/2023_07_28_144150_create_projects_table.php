@@ -9,8 +9,13 @@ return new class extends Migration {
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->unsigned();
             $table->longText('photo');
             $table->boolean('status')->default(1);
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
