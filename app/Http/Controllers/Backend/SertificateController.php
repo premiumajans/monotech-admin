@@ -15,20 +15,20 @@ class SertificateController extends Controller
 {
     public function index()
     {
-        check_permission('sertificate index');
+        check_permission('certificate index');
         $sertificates = Sertificate::all();
         return view('backend.sertificate.index', get_defined_vars());
     }
 
     public function create()
     {
-        check_permission('sertificate create');
+        check_permission('certificate create');
         return view('backend.sertificate.create', get_defined_vars());
     }
 
     public function store(Request $request)
     {
-        check_permission('sertificate create');
+        check_permission('certificate create');
         try {
             $sertificate = new Sertificate();
             $sertificate->photo = upload('sertificate', $request->file('photo'));
@@ -51,14 +51,14 @@ class SertificateController extends Controller
 
     public function edit(string $id)
     {
-        check_permission('sertificate edit');
-        $sertificate = Sertificate::find($id);
+        check_permission('certificate edit');
+        $certificate = Sertificate::find($id);
         return view('backend.sertificate.edit', get_defined_vars());
     }
 
     public function update(Request $request, string $id)
     {
-        check_permission('sertificate edit');
+        check_permission('certificate edit');
         try {
             $sertificate = Sertificate::find($id);
             DB::transaction(function () use ($request, $sertificate) {
@@ -84,13 +84,13 @@ class SertificateController extends Controller
 
     public function status(string $id)
     {
-        check_permission('sertificate edit');
+        check_permission('certificate edit');
         return CRUDHelper::status('\App\Models\Sertificate', $id);
     }
 
     public function delete(string $id)
     {
-        check_permission('sertificate delete');
+        check_permission('certificate delete');
         return CRUDHelper::remove_item('\App\Models\Sertificate', $id);
     }
 }
